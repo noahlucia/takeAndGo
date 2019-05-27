@@ -49,6 +49,7 @@ app.locals.title = 'Express - Generated with IronGenerator'
 // Routing 
 app.use('/', require('./routes/index.routes'))
 app.use('/', require('./routes/auth.routes'))
+app.use('/', require('./routes/user.routes'))
 
 
 
