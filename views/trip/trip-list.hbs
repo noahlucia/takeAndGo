@@ -1,0 +1,20 @@
+<h1>Viajes disponibles</h1>
+
+<ul>
+  {{#each trips}}
+  <li>
+    <a href="/trip/detail/{{this._id}}">{{title}}</a>
+
+    {{#if creatorID}}
+    <a href="/trip/edit/{{this._id}}">editar</a>
+    {{/if}}
+  </li>
+
+  {{/each}}
+</ul>
+
+
+<a href="/trip/add">Añadir Viaje</a>
+
+
+<a href="/">Volver</a>

@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    {{ message }}
+
+    <h1>Editar {{trip.title}}</h1>
+    <div class="col-sm-6 centered-form">
+      <form action="/trip/add" method="post">
+        <div class="form-group">
+          <label for="origin">Origen:</label>
+          <input type="text" name="origin" class="form-control" value="{{trip.origin}}"><br><br>
+        </div>
+
+        <div class="form-group">
+          <label for="destination">Destino:</label>
+          <input type="text" name="destination" class="form-control" value="{{trip.destination}}"><br><br>
+
+        </div>
+
+        <div class="form-group">
+          <label for="day">Fecha:</label>
+          <input type="date" name="day" class="form-control" value="{{trip.day}}"><br><br>
+
+        </div>
+        <div class="form-group">
+          <label for="time">hora:</label>
+          <input type="time" name="time" class="form-control" value="{{trip.time}}"><br><br>
+
+        </div>
+
+        <div class="form-group">
+          <label for="passengers">Pasajeros:</label>
+          <input type="text" name="passengers" class="form-control" value="{{trip.passengers}}"><br><br>
+
+        </div>
+
+
+        <div class="form-group">
+          <p>Precio:</p>
+          <select name="select">
+
+            <option value="value1">3 €</option>
+            <option value="value2">5 €</option>
+            <option value="value3">8 €</option>
+          </select><br>
+
+          <div class="form-group">
+            <label for="description">Descripción:</label>
+            <input type="text" name="description" class="form-control" value="{{trip.description}}"><br><br>
+
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="smoker">Fumador:</label>
+          <input type="checkbox" name="smoker" class="form-control"><br><br>
+
+        </div>
+
+        <div class="form-group">
+          <label for="carType">Coche:</label>
+          <input type="text" name="carType" class="form-control" value="{{trip.carType}}"><br><br>
+
+        </div>
+
+        <button type="submit">Añadir comentario</button>
+      </form>
+    </div>
+  </div>
+</div>
+<a href="/">Volver</a><br><br>
+<a href="/list">Ir a la lista</a>

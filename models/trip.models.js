@@ -3,26 +3,23 @@ const Schema = mongoose.Schema;
 
 const tripSchema = new Schema({
   creatorID: { type: Schema.Types.ObjectId, ref: 'User' },
-  passengers: Number,
+  title: String,
+  origin: String,
+  originCoordinates: [Number],
+  destination: String,
+  destinationCoordinates: [Number],
   day: Date,
-  time: Date,
-  origin: {
-    type: { type: String },
-    coordinates: [Number]
-  },
-  destination: {
-    type: { type: String },
-    coordinates: [Number]
-  },
+  time: String,
+  passengers: Number,
+  price: Number,
   description: String,
-  prices: Number,
+  smoker: Boolean,
   carType: String,
-  smoker: Boolean
 }, {
     timestamps: true
   })
 
 
 
-const Trip = mongoose.model('Trip', userSchema);
-module.exports = User;
+const Trip = mongoose.model('Trip', tripSchema);
+module.exports = Trip;

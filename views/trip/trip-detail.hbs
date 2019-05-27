@@ -1,0 +1,32 @@
+<h1>{{trip.title}}</h1>
+
+<p>Origen: {{trip.origin}}</p>
+<p>Destino: {{trip.destination}}</p>
+<p>Fecha: {{date}}</p>
+<p>Hora: {{trip.time}}</p>
+<p>Pasajeros: {{trip.passengers}}</p>
+<p>Descripción: {{trip.description}}</p>
+<p>Fumador: {{trip.smoker}}</p>
+<p>Coche: {{trip.carType}}</p>
+
+{{#if trip.creatorID}}
+<a href="/trip/edit/{{trip._id}}">Editar viaje</a>
+{{/if}}
+
+{{#if user}}
+<h3>Comentarios</h3>
+
+<div class="form-group">
+  <label for="title">Título:</label>
+  <input type="text" name="title" class="form-control"><br><br>
+</div>
+
+<div class="form-group">
+  <label for="content">Contenido:</label>
+  <input type="text" name="content" class="form-control"><br><br>
+
+
+
+</div>
+{{/if}}
+< <a href="/trip/list">Ir a Lista</a>

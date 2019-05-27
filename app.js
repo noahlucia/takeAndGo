@@ -1,6 +1,6 @@
 require('dotenv').config()
 require('./config/mongoose.config')
-require('./config/middleware.config')
+
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const express = require('express')
@@ -36,11 +36,13 @@ require('./passport')(app)
 app.use(flash());
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator'
+app.locals.title = 'Wellcome to Take&Go'
 
 // Routing 
 app.use('/', require('./routes/index.routes'))
 
+const trips = require('./routes/trip.routes')
+app.use('/trip', trips)
 
 
 
