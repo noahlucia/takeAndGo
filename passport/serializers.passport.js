@@ -1,5 +1,5 @@
 const passport = require('passport')
-const user = require('../models/user.models')
+const User = require('../models/user.models')
 
 passport.serializeUser((user, cb) => {
   cb(null, user.id)
