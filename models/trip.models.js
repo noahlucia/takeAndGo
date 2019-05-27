@@ -22,5 +22,7 @@ const tripSchema = new Schema({
     timestamps: true
   })
 
+
+
 const Trip = mongoose.model('Trip', userSchema);
 module.exports = User;
