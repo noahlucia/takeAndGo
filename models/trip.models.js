@@ -15,9 +15,12 @@ const tripSchema = new Schema({
   description: String,
   smoker: Boolean,
   carType: String,
+  comment: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 }, {
     timestamps: true
   })
+
+tripSchema.index({ location: '2dsphere' })
 
 
 

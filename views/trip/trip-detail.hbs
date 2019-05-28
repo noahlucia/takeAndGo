@@ -6,10 +6,19 @@
 <p>Hora: {{trip.time}}</p>
 <p>Pasajeros: {{trip.passengers}}</p>
 <p>Descripción: {{trip.description}}</p>
-<p>Fumador: {{trip.smoker}}</p>
+<p>Fumador: {{smoker}}</p>
 <p>Coche: {{trip.carType}}</p>
 
-{{#if trip.creatorID}}
+{{#if owner}}
+<p>{{trip.creatorID}}</p>
+{{/if}}
+
+{{#each trip.comment}}
+<p>{{this}}</p>
+{{/each}}
+
+
+{{#if owner}}
 <a href="/trip/edit/{{trip._id}}">Editar viaje</a>
 {{/if}}
 
@@ -29,4 +38,4 @@
 
 </div>
 {{/if}}
-< <a href="/trip/list">Ir a Lista</a>
+<a href="/trip/list">Ir a Lista</a>
