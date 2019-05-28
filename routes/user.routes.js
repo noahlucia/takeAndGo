@@ -2,7 +2,6 @@ const user = require('../models/user.models')
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
-const bcryptSalt = 10
 const cloudinaryConfig = require('../config/cloudinary.config')
 
 //User edit 
@@ -15,11 +14,9 @@ router.get('/edit/:id', (req, res) => {
 })
 
 router.post('/edit/:id', cloudinaryConfig.single('photo'), (req, res, next) => {
-  const { username, email, firstName, lastName, homeAddress, workAddress, phone, imgName, imgPath } = req.body
+  const { username, email, firstName, lastName, homeAddress, workAddress, phone } = req.body
   const newPassword = req.body.password
   const id = req.params.id
-
-
 
   console.log(req.body)
   user.findByIdAndUpdate(id, {
@@ -45,7 +42,7 @@ router.post('/edit/:id', cloudinaryConfig.single('photo'), (req, res, next) => {
       } else {
         res.redirect('/')
       }
-      console.log('Update success:', update)
+      console.log('Update success:', updatedUser)
     })
     .catch(err => console.log('error', err))
 })

@@ -13,6 +13,8 @@ const userSchema = new Schema({
   workAddress: String,
   imgName: String,
   imgPath: String,
+  originCoordinates: [Number],
+  destinationCoordinates: [Number],
 }, {
     timestamps: true
   })
