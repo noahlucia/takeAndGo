@@ -1,12 +1,231 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
-a {
-  color: #00B7FF; }
+body {
+  font-family: "Montserrat";
+  font-size: 1em;
+  background: #fafafa;
+  position: relative; }
 
 #map {
   width: 600px;
   height: 600px; }
+
+.container {
+  display: flex;
+  height: calc(100vh - 80px); }
+
+.left {
+  height: 100%;
+  align-items: center;
+  display: flex;
+  width: 50%; }
+
+.right {
+  height: 100%;
+  align-items: center;
+  display: flex;
+  width: 50%; }
+
+.box {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; }
+
+.box1 {
+  padding: 0 100px 0 0; }
+
+h1 {
+  font-family: 'Rufina', serif; }
+
+h2 {
+  font-family: 'Rufina', serif; }
+
+.button {
+  background: linear-gradient(to right top, #8deae3, #7cf0e1, #6bf5dc, #5dfad4, #53ffca);
+  padding: 15px 20px;
+  border-radius: 50px;
+  display: block;
+  width: 35%;
+  margin-top: 20px;
+  box-shadow: 1px 3px #a6a6a636; }
+
+.navegation {
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  align-items: center; }
+
+.navegation a {
+  text-decoration: none; }
+
+.navegation ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 70px; }
+
+.navegation ul li a {
+  text-decoration: none;
+  color: #00144A;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8em; }
+
+.navegation ul li:first-child {
+  margin-left: 0; }
+
+#logo {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #00144A;
+  font-size: 1.4em;
+  letter-spacing: 1px; }
+
+#logo span {
+  color: #FC3838; }
+
+#home {
+  position: absolute;
+  top: 80px;
+  opacity: 0; }
+
+.box h1 {
+  font-size: 2.6em;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  color: #00144A; }
+
+.box p {
+  line-height: 1.5em;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #00144A; }
+
+.box a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  text-align: center; }
+
+img.nub1 {
+  width: 40%;
+  position: absolute;
+  z-index: -23;
+  left: -250px;
+  top: 0px;
+  animation: float2 4s ease-in-out infinite alternate; }
+
+img.nub2 {
+  width: 30%;
+  position: absolute;
+  z-index: -23;
+  right: 700px;
+  bottom: 0px;
+  animation: float2 4s ease-in-out infinite alternate; }
+
+img.nub3 {
+  width: 20%;
+  position: absolute;
+  z-index: -23;
+  left: 550px;
+  top: 80px;
+  animation: float1 4s ease-in-out infinite alternate; }
+
+img.nub4 {
+  width: 10%;
+  position: absolute;
+  z-index: -23;
+  left: 1150px;
+  top: 10px;
+  animation: float1 4s ease-in-out infinite alternate; }
+
+img.homeImg {
+  width: 100%; }
+
+@keyframes float1 {
+  from {
+    transform: translateX(-50px); }
+  to {
+    transform: translateX(24px); } }
+
+@keyframes float2 {
+  from {
+    transform: translateX(3px); }
+  to {
+    transform: translateX(-50px); } }
+
+#aboutUs {
+  position: absolute;
+  top: 80px;
+  opacity: 0; }
+
+.box-about {
+  padding: 0 50px; }
+
+.box-about h2 {
+  font-size: 2.6em;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  color: #00144A; }
+
+.box-about p {
+  line-height: 1.5em;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #00144A;
+  padding: 20px 100px 0 0; }
+
+#contact {
+  position: absolute;
+  top: 80px;
+  opacity: 1; }
+
+img.contactImg {
+  width: 100%; }
+
+h2 {
+  font-size: 2.6em;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  color: #00144A; }
+
+input {
+  display: block;
+  width: 50%;
+  height: 50px;
+  margin: 20px auto;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 0px;
+  box-shadow: 1px 3px #a6a6a636;
+  font-family: FontAwesome, "Montserrat"; }
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.219); }
+
+input:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px #4cfbc681; }
+
+button {
+  background: linear-gradient(to right top, #8deae3, #7cf0e1, #6bf5dc, #5dfad4, #53ffca);
+  padding: 15px 20px;
+  border-radius: 50px;
+  display: block;
+  width: 35%;
+  margin-top: 20px;
+  box-shadow: 1px 3px #a6a6a636;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin: 0 auto;
+  border: 0;
+  color: white;
+  letter-spacing: 1px; }
+
+button:focus {
+  outline: none !important; }
 
 /*# sourceMappingURL=style.css.map */
