@@ -15,13 +15,14 @@ const isLogged = (req) => req.user !== undefined
 router.get('/add', (req, res) => res.render("trip/trip-add"))
 router.post('/add', (req, res) => {
 
-  const { title, origin, destination, day, time, passengers, price, description, carType } = req.body
+  const { title, originNeighb, origin, destNeighb, destination, day, time, passengers, price, description, carType } = req.body
+
   let smoker = req.body.smoker
   if (smoker === "on") smoker = true
   else smoker = false
 
   const creatorID = req.user.id
-  const newTrip = new Trip({ creatorID, title, origin, destination, day, time, passengers, price, description, smoker, carType })
+  const newTrip = new Trip({ creatorID, title, originNeighb, origin, destNeighb, destination, day, time, passengers, price, description, smoker, carType })
   newTrip.save()
     .then(theTrip => res.redirect(`/trip/detail/${theTrip._id}`))
     .catch(error => console.log(error))
@@ -67,9 +68,9 @@ router.get('/edit/:trip_id', (req, res) => {
 })
 
 router.post('/edit/trip_id', (req, res) => {
-  const { title, origin, destination, day, time, passengers, price, description, smoker, carType } = req.body
+  const { title, neighbourhood, origin, destination, day, time, passengers, price, description, smoker, carType } = req.body
 
-  Trip.findByIdAndUpdate({ _id: req.params.trip_id }, { $set: { title, origin, destination, day, time, passengers, price, description, smoker, carType } })
+  Trip.findByIdAndUpdate({ _id: req.params.trip_id }, { $set: { title, neighbourhood, origin, destination, day, time, passengers, price, description, smoker, carType } })
     .then(() => res.redirect(`/trip/detail/${theTrip._id}`))
     .catch(error => console.log(error))
 

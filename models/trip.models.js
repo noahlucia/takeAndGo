@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const tripSchema = new Schema({
   creatorID: { type: Schema.Types.ObjectId, ref: 'User' },
   title: String,
+  originNeighb: String,
+  destNeighb: String,
   origin: String,
   originCoordinates: [Number],
   destination: String,
@@ -11,7 +13,7 @@ const tripSchema = new Schema({
   day: Date,
   time: String,
   passengers: Number,
-  price: Number,
+  price: String,
   description: String,
   smoker: Boolean,
   carType: String,
