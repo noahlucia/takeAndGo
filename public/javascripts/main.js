@@ -18,6 +18,8 @@ window.onload = () => {
   const destin = document.getElementById('destin').innerText
 
 
+  displayRoute(origin, destin, directionsService,
+    directionsDisplay);
   function displayRoute(origin, destination, service, display) {
     service.route({
       origin: origin,
@@ -33,8 +35,6 @@ window.onload = () => {
     });
   }
 
-  displayRoute(origin, destin, directionsService,
-    directionsDisplay);
   function computeTotalDistance(result) {
     var total = 0;
     var myroute = result.routes[0];
@@ -44,4 +44,10 @@ window.onload = () => {
     total = total / 1000;
     document.getElementById('total').innerHTML = total + ' km';
   }
+
+
+}
+window.onclick = e => {
+  console.log(e)
+
 }
