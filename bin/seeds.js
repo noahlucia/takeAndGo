@@ -1147,8 +1147,9 @@ let users = [
 
   },
 
-
 ]
+
+users.forEach(user => user.myTrips = [])
 
 User.deleteMany()
   .then(() => {
@@ -2923,7 +2924,8 @@ User.deleteMany()
         destination: elm.destination,
         day: elm.day,
         time: elm.time,
-        passengers: elm.passengers,
+        passengers: [],
+        maxPassengers: Math.floor(Math.random() * (4 - 1) + 1),
         price: elm.price,
         description: elm.description,
         smoker: elm.smoker,

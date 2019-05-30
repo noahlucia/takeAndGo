@@ -13,8 +13,9 @@ const userSchema = new Schema({
   workAddress: String,
   imgName: { type: String, default: "doraemon.png" },
   imgPath: { type: String, default: "http://res.cloudinary.com/lulas/image/upload/v1558625341/tumblr-Lucia/doraemon.png.png" },
-  originCoordinates: [Number],
-  destinationCoordinates: [Number],
+  myTrips: [{ type: Schema.Types.ObjectId, ref: 'Trip' }],
+  /*  originCoordinates: [Number],
+   destinationCoordinates: [Number], */
 }, {
     timestamps: true
   })
