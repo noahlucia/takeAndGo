@@ -183,11 +183,11 @@ img.homeImg {
   from {
     transform: translateX(-50px); }
   to {
-    transform: translateX(19px); } }
+    transform: translateX(27px); } }
 
 @keyframes float2 {
   from {
-    transform: translateX(22px); }
+    transform: translateX(40px); }
   to {
     transform: translateX(-50px); } }
 

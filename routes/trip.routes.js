@@ -128,7 +128,7 @@ router.get('/list', (req, res, next) => {
     .then(allTrips => {
 
       console.log(allTrips)
-      res.render('trip/trip-list', { trips: allTrips, user: req.user })
+      res.render('trip/trip-list', { trips: JSON.stringify(allTrips), user: req.user })
     })
     .catch(error => console.log(error))
 })
