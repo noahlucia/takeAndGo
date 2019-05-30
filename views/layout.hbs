@@ -14,14 +14,20 @@
 </head>
 
 <body>
+  <a href="/" id="logo">Take&<span>Go</span></a>
   <header class="navegation">
-    <a href="/" id="logo">Take&<span>Go</span></a>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Login / Register</a></li>
+        <li><a href="/#aboutus">About us</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        {{#if user}}
+        <li><a href="/trip/list">View</a></li>
+        <li><a href="/logout">Logout</a></li>
+        {{else}}
+        <li><a href="/signup">Login / Register</a></li>
+        {{/if}}
+
       </ul>
     </nav>
   </header>

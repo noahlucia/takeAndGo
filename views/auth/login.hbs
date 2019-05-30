@@ -1,19 +1,33 @@
-<h1>Login</h1>
-
-<form action="/login" method="post">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" name="username" class="form-control">
+<section id="signup" class="container">
+  <div class="backlogin"></div>
+  <div class="left">
+    <div class="box">
+      <img src="images/login.png" alt="login img" class="loginImg">
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" name="password" class="form-control">
   </div>
-
-  <button type="submit">Login</button>
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <a href="/">Go back</a>
-</form>
+  <div class="right">
+    <div class="box">
+      <header class="signup">
+        <h2>Login</h2>
+        <p>Welcome to Take&Go!</p>
+        <p>Need to sign up? <span><a href="/signup">Sign Up</a></span></p>
+        <p></p>
+      </header>
+      <form action="/login" method="post">
+        <div class="form-group">
+          <label for="username"></label>
+          <input type="text" name="username" class="form-control" placeholder="&#xf007;   username">
+        </div>
+        <div class="form-group">
+          <label for="password"></label>
+          <input type="password" name="password" class="form-control" placeholder="&#xf13e;   password">
+        </div>
+        <div class="mgs">
+          {{message}}
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</section>

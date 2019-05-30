@@ -1,112 +1,119 @@
 <div class="container">
-  <div class="row">
-    {{ message }}
-    <div class="col-sm-6 centered-form">
-      <form action="/trip/add" method="post">
+
+  <aside class='user-inf'>
+    <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
+    <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
+    <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
+    <a href='/trip/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+  </aside>
+
+
+  <div class='form-trip'>
+    <form action="/trip/add" method="post">
+
+      <div class="form-group">
+        <label for="title">Título:</label>
+        <input type="text" name="title" class="form-control"><br><br>
+      </div>
+
+      <div>
+        <p>Selecciona barrio de origen</p>
+        <select name="originNeighb">
+
+          <option value="Carabanchel">Carabanchel</option>
+          <option value="Ciudad Lineal">Ciudad Lineal</option>
+          <option value="Chamartín">Chamartín</option>
+          <option value="Fuencarral - El Pardo">Fuencarral - El Pardo</option>
+          <option value="Hortaleza<">Hortaleza</option>
+          <option value="Moncloa">Moncloa</option>
+          <option value="Moratalaz">Moratalaz</option>
+          <option value="Puente Vallecas">Puente Vallecas</option>
+          <option value="Tetuán">Tetuán</option>
+          <option value="Usera">Usera</option>
+
+
+        </select><br>
+      </div>
+
+      <div class="form-group">
+        <label for="origin">Origen:</label>
+        <input type="text" name="origin" class="form-control"><br><br>
+      </div>
+
+      <div>
+        <p>Selecciona barrio de destino</p>
+        <select name="destNeighb">
+
+          <option value="Carabanchel">Carabanchel</option>
+          <option value="Ciudad Lineal">Ciudad Lineal</option>
+          <option value="Chamartín">Chamartín</option>
+          <option value="El Pilar">El Pilar</option>
+          <option value="Hortaleza<">Hortaleza</option>
+          <option value="Latina">Latina</option>
+          <option value="Las Tablas">Las Tablas</option>
+          <option value="Moratalaz">Moratalaz</option>
+          <option value="Puente Vallecas">Puente Vallecas</option>
+          <option value="Usera">Usera</option>
+        </select><br>
+      </div>
+
+      <div class="form-group">
+        <label for="destination">Destino:</label>
+        <input type="text" name="destination" class="form-control"><br><br>
+
+      </div>
+
+      <div class="form-group">
+        <label for="day">Fecha:</label>
+        <input type="date" name="day" class="form-control"><br><br>
+
+      </div>
+      <div class="form-group">
+        <label for="time">hora:</label>
+        <input type="time" name="time" class="form-control"><br><br>
+
+      </div>
+
+      <div class="form-group">
+        <label for="passengers">Pasajeros:</label>
+        <input type="text" name="passengers" class="form-control"><br><br>
+
+      </div>
+
+
+      <div class="form-group">
+        <p>Precio:</p>
+        <select name="select">
+
+          <option value="value1">3 €</option>
+          <option value="value2">5 €</option>
+          <option value="value3">8 €</option>
+        </select><br>
 
         <div class="form-group">
-          <label for="title">Título:</label>
-          <input type="text" name="title" class="form-control"><br><br>
-        </div>
-
-        <div>
-          <p>Selecciona barrio de origen</p>
-          <select name="originNeighb">
-
-            <option value="Carabanchel">Carabanchel</option>
-            <option value="Ciudad Lineal">Ciudad Lineal</option>
-            <option value="Chamartín">Chamartín</option>
-            <option value="Fuencarral - El Pardo">Fuencarral - El Pardo</option>
-            <option value="Hortaleza<">Hortaleza</option>
-            <option value="Moncloa">Moncloa</option>
-            <option value="Moratalaz">Moratalaz</option>
-            <option value="Puente Vallecas">Puente Vallecas</option>
-            <option value="Tetuán">Tetuán</option>
-            <option value="Usera">Usera</option>
-
-
-          </select><br>
-        </div>
-
-        <div class="form-group">
-          <label for="origin">Origen:</label>
-          <input type="text" name="origin" class="form-control"><br><br>
-        </div>
-
-        <div>
-          <p>Selecciona barrio de destino</p>
-          <select name="destNeighb">
-
-            <option value="Carabanchel">Carabanchel</option>
-            <option value="Ciudad Lineal">Ciudad Lineal</option>
-            <option value="Chamartín">Chamartín</option>
-            <option value="El Pilar">El Pilar</option>
-            <option value="Hortaleza<">Hortaleza</option>
-            <option value="Latina">Latina</option>
-            <option value="Las Tablas">Las Tablas</option>
-            <option value="Moratalaz">Moratalaz</option>
-            <option value="Puente Vallecas">Puente Vallecas</option>
-            <option value="Usera">Usera</option>
-          </select><br>
-        </div>
-
-        <div class="form-group">
-          <label for="destination">Destino:</label>
-          <input type="text" name="destination" class="form-control"><br><br>
+          <label for="description">Descripción:</label>
+          <input type="text" name="description" class="form-control"><br><br>
 
         </div>
 
-        <div class="form-group">
-          <label for="day">Fecha:</label>
-          <input type="date" name="day" class="form-control"><br><br>
+      </div>
 
-        </div>
-        <div class="form-group">
-          <label for="time">hora:</label>
-          <input type="time" name="time" class="form-control"><br><br>
+      <div class="form-group">
+        <label for="smoker">Fumador:</label>
+        <input type="checkbox" name="smoker" class="form-control"><br><br>
 
-        </div>
+      </div>
 
-        <div class="form-group">
-          <label for="passengers">Pasajeros:</label>
-          <input type="text" name="passengers" class="form-control"><br><br>
+      <div class="form-group">
+        <label for="carType">Coche:</label>
+        <input type="text" name="carType" class="form-control"><br><br>
 
-        </div>
-
-
-        <div class="form-group">
-          <p>Precio:</p>
-          <select name="select">
-
-            <option value="value1">3 €</option>
-            <option value="value2">5 €</option>
-            <option value="value3">8 €</option>
-          </select><br>
-
-          <div class="form-group">
-            <label for="description">Descripción:</label>
-            <input type="text" name="description" class="form-control"><br><br>
-
-          </div>
-
-        </div>
-
-        <div class="form-group">
-          <label for="smoker">Fumador:</label>
-          <input type="checkbox" name="smoker" class="form-control"><br><br>
-
-        </div>
-
-        <div class="form-group">
-          <label for="carType">Coche:</label>
-          <input type="text" name="carType" class="form-control"><br><br>
-
-        </div>
-
-        <button type="submit">Añadir Viaje</button>
-      </form>
-    </div>
+      </div>
+      <div class="mgs">
+        {{message}}
+      </div>
+      <button type="submit">Añadir Viaje</button>
+    </form>
   </div>
 </div>
-<a href="/">Volver</a><br><br>
 <a href="/trip/list">Ir a la lista</a>

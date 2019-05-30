@@ -1,22 +1,39 @@
-<h2>Signup</h2>
-
-<form action="/signup" method="post">
-
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" name="username" class="form-control">
+<section id="signup" class="container">
+  <div class="backsignup"></div>
+  <div class="left">
+    <div class="box">
+      <img src="images/signup.png" alt="signup img" class="signupImg">
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" name="email" class="form-control">
   </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" name="password" class="form-control">
+  <div class="right">
+    <div class="box">
+      <header class="signup">
+        <h2>Sign Up</h2>
+        <p>To share your car easy</p>
+        <p>Are you sign up? <span><a href="/login">Login</a></span></p>
+        <p></p>
+      </header>
+      <form action="/signup" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="username"></label>
+          <input type="text" name="username" class="form-control" placeholder="&#xf007;   username">
+        </div>
+        <div class="form-group">
+          <label for="email"></label>
+          <input type="text" name="email" class="form-control" placeholder="&#xf0e0;   email">
+        </div>
+        <div class="form-group">
+          <label for="password"></label>
+          <input type="password" name="password" class="form-control" placeholder="&#xf13e;   password">
+        </div>
+        <label for="photo"></label>
+        <input type="file" name="photo" class="photoInput" placeholder="Upload File">
+        <div class="mgs">
+          {{message}}
+        </div>
+        <button type="submit">Signup</button>
+      </form>
+    </div>
   </div>
-  <button type="submit">Signup</button>
-
-  <a href="/">Go back</a>
-</form>
+</section>
