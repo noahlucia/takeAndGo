@@ -58,7 +58,7 @@ router.get('/detail/:trip_id', (req, res) => {
 
 
 
-router.get("/myTrips/:trip_id", (req, res) => {
+router.get("/join/:trip_id", (req, res) => {
 
   Trip.findById({ _id: req.params.trip_id })
     .populate("passengers")
@@ -150,21 +150,18 @@ router.post('/delete/:trip_id', (req, res) => {
 //join Trip
 
 router.get("/myTrips", (req, res) => {
-  Trip.findById({ _id: req.user._id })
-    .then(trips => {
 
-      res.render("trip/trip-myTrip", { trips })
+  User.findById({ _id: req.user._id })
+    .populate({ path: 'myTrips', populate: { path: 'creatorID' } })
+    .then(user => {
+      console.log(user.myTrips)
+      res.render("trip/trip-myTrip", { trips: user.myTrips })
     })
-})
-
-
-
-//show my Trips
-
-router.get('/myTrips/', (req, res) => {
-  Trip.find()
 
 })
+
+
+
 
 
 

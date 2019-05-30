@@ -16,10 +16,10 @@
           <option value="Carabanchel">Carabanchel</option>
           <option value="Ciudad Lineal">Ciudad Lineal</option>
           <option value="Chamartín">Chamartín</option>
-          <option value="El Pilar">Fuencarral - El Pardo</option>
+          <option value="El Pilar">El Pilar</option>
           <option value="Hortaleza<">Hortaleza</option>
-          <option value="Las Tablas">Moncloa</option>
-          <option value="Latina">Tetuán</option>
+          <option value="Las Tablas">Las Tablas</option>
+          <option value="Latina">Latina</option>
           <option value="Moratalaz">Moratalaz</option>
           <option value="Puente Vallecas">Puente Vallecas</option>
           <option value="Usera">Usera</option>
@@ -49,20 +49,20 @@
 </div>
 
 </div>
+
 <script>
   const trips = {{ trips }}
 </script>
 
-
-
-{{!-- <ul>
-    <div id="search-results" class="flex-container">
-      {{#each trips}} <li>
-        {{> tripCard}}
-        {{/each}}
-    </div>
-    {{#if creatorID}}
-    <a href="/trip/edit/{{this._id}}">editar</a>
-    {{/if}}
-    </li>
-  </ul> --}}
+<script src="../../javascript/script.js"></script>
+<ul>
+  <div id="search-results" class="flex-container">
+    {{#each trips}} <li>
+      {{> tripCard}}
+      {{/ each}}
+  </div>
+  {{#if creatorID}}
+  <a href="/trip/edit/{{this._id}}">editar</a>
+  {{/if}}
+  </li>
+</ul>
