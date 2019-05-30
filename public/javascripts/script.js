@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const getTrips = (originNeighb, destNeighb) => {
 
-    axios.post("https://takeandgo.herokuapp.com/api", { originNeighb, destNeighb })
+    axios.post("/api", { originNeighb, destNeighb })
       .then(response => {
         document.getElementById("search-results").innerHTML = ""
 
