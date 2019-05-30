@@ -3,11 +3,12 @@ const bcrypt = require("bcrypt");
 const User = require("../models/user.models");
 const Trip = require("../models/trip.models")
 const Schema = mongoose.Schema;
+require("dotenv").config()
 
 const bcryptSalt = 10;
 
 mongoose
-  .connect(`mongodb://localhost/project2-LN-take&go`, { useNewUrlParser: true })
+  .connect(process.env.DB, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
