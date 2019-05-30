@@ -27,6 +27,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
+
+hbs.registerPartials(__dirname + '/views/partials')
+
+
 // Express View engine setup
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
@@ -46,13 +50,14 @@ require('./passport')(app)
 // default value for title local
 app.locals.title = 'Wellcome to Take&Go'
 
+
+
 // Routing 
 app.use('/', require('./routes/index.routes'))
 app.use('/', require('./routes/auth.routes'))
 app.use('/', require('./routes/user.routes'))
-
-const trips = require('./routes/trip.routes')
-app.use('/trip', trips)
+app.use('/trip', require('./routes/trip.routes'))
+app.use('/api', require('./routes/api.routes'))
 
 
 

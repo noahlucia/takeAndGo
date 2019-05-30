@@ -38,14 +38,12 @@
       {{#if owner}}
       <p>{{trip.creatorID}}</p>
       {{/if}}
-
-      {{#each trip.comment}}
-      <p>{{this}}</p>
-      {{/each}}
+      <<<<<<< HEAD {{#each trip.comment}} <p>{{this}}</p>
+        {{/each}}
 
 
-      {{#if owner}}
-      <a href='/trip/edit/{{trip._id}}'>Editar viaje</a> {{/if}} {{#if user}} {{!-- <div class='form-group'>
+        {{#if owner}}
+        <a href='/trip/edit/{{trip._id}}'>Editar viaje</a> {{/if}} {{#if user}} {{!-- <div class='form-group'>
      <h3>Comentarios</h3>
        <label for='title'>Título:</label>
        <input type='text' name='title' class='form-control'>
@@ -66,8 +64,44 @@
     </div>
   </div>
   {{!-- <a href='/trip/list'>Ir a Lista</a> --}}
+  =======
+
+  {{#each trip.comment}}
+  <p>{{this}}</p>
+  {{/each}}
+
+
+  {{#if owner}}
+  <a href="/trip/edit/{{trip._id}}">Editar viaje</a>
+  {{/if}}
+
+  {{#if user}}
+
+  {{!-- <div class="form-group">
+      <h3>Comentarios</h3>
+        <label for="title">Título:</label>
+        <input type="text" name="title" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="content">Contenido:</label>
+        <textarea name="content" class="form-control"></textarea>
+
+ --}}
+</div>
+{{/if}}
+<div class="map">
+  <figure id="map"></figure>
+  <div class="grey-mask"></div>
+  <div id="right-panel">
+    <p>Total Distance: <span id="total"></span></p>
+  </div>
+</div>
+</div>
+{{!-- <a href="/trip/list">Ir a Lista</a> --}}
+>>>>>>> 7da94a3ce3bc5a41630838697de64a7dd669885d
 
 
 </div>
 
-</div>
+<<<<<<< HEAD </div>=======</div>>>>>>>> 7da94a3ce3bc5a41630838697de64a7dd669885d
