@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const bcryptSalt = 10;
 
 mongoose
-  .connect('mongodb://localhost/seeds', { useNewUrlParser: true })
+  .connect(`mongodb://localhost/project2-LN-take&go`, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

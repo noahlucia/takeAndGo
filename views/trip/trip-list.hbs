@@ -2,7 +2,7 @@
 
 <div>
   <p>Selecciona barrio de origen</p>
-  <select name="originNeighb">
+  <select id="originNeighb">
 
     <option value="Carabanchel">Carabanchel</option>
     <option value="Ciudad Lineal">Ciudad Lineal</option>
@@ -19,7 +19,7 @@
   </select>
 
   <p>Selecciona barrio de destino</p>
-  <select name="destNeighb">
+  <select id="destNeighb">
 
     <option value="Carabanchel">Carabanchel</option>
     <option value="Ciudad Lineal">Ciudad Lineal</option>
@@ -32,23 +32,37 @@
     <option value="Puente Vallecas">Puente Vallecas</option>
     <option value="Usera">Usera</option>
   </select><br>
+
+
+
+
+</div>
+<div class="container-list">
+  <div class="aside">
+    <a href="/trip/add">Añadir Viaje</a>
+
+  </div>
+  <div class="container-list-med">
+    <ul>
+      <div id="search-results" class="flex-container">
+        {{#each trips}} <li>
+          {{> tripCard}}
+          {{/each}}
+      </div>
+      {{!-- {{#each trips}}
+      <a href="/trip/detail/{{this._id}}">{{title}}</a>
+ --}}
+      {{#if creatorID}}
+      <a href="/trip/edit/{{this._id}}">editar</a>
+      {{/if}}
+      </li>
+
+    </ul>
+  </div>
 </div>
 
-<ul>
-  {{#each trips}}
-  <li>
-    <a href="/trip/detail/{{this._id}}">{{title}}</a>
-
-    {{#if creatorID}}
-    <a href="/trip/edit/{{this._id}}">editar</a>
-    {{/if}}
-  </li>
-
-  {{/each}}
-</ul>
 
 
-<a href="/trip/add">Añadir Viaje</a>
 
 
-<a href="/">Volver</a>
+<script src="/javascripts/script.js"></script>

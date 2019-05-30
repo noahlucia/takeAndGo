@@ -1,45 +1,82 @@
-<h1>{{trip.title}}</h1>
-
-<p>Origen: <span id='origin'>{{trip.origin}}</span></p>
-<p>Destino:<span id='destin'>{{trip.destination}}</span> </p>
-<p>Fecha: {{date}}</p>
-<p>Hora: {{trip.time}}</p>
-<p>Pasajeros: {{trip.passengers}}</p>
-<p>Descripción: {{trip.description}}</p>
-<p>Fumador: {{smoker}}</p>
-<p>Coche: {{trip.carType}}</p>
-
-{{#if owner}}
-<p>{{trip.creatorID}}</p>
-{{/if}}
-
-{{#each trip.comment}}
-<p>{{this}}</p>
-{{/each}}
+<div class="container">
 
 
-{{#if owner}}
-<a href="/trip/edit/{{trip._id}}">Editar viaje</a>
-{{/if}}
+  <aside class="user-inf">
+    <a href="/user/edit"><i class="fas fa-user"></i>My Account</a>
+    <a href="/trip/list">Find Car</a>
+    <a href="/trip/add">Sharing Car</a>
+    <a href="/trip/edit">My Trip</a>
 
-{{#if user}}
-<h3>Comentarios</h3>
 
-<div class="form-group">
-  <label for="title">Título:</label>
-  <input type="text" name="title" class="form-control"><br><br>
+  </aside>
+
+  <div class="container-med">
+
+    <div class="trip">
+      <h2>{{trip.title}}</h2>
+      <div class="details-box pick">
+        <h3>Pick up location</h3>
+        <p id="origin">{{trip.origin}}</p>
+        <p>{{date}} {{trip.time}}</p>
+
+      </div>
+
+      <div class="details-box drop">
+        <h3>Drop off location</h3>
+        <p id='destin'>{{trip.destination}}</p>
+        <p>{{date}} {{trip.time}}</p>
+
+
+      </div>
+
+      <div class="trip-info">
+
+        <p>Pasajeros: {{trip.passengers}}</p>
+        <p>Fumador: {{smoker}}</p>
+        <p>Coche: {{trip.carType}}</p>
+        <p>Descripción: {{trip.description}}</p>
+
+      </div>
+
+      {{#if owner}}
+      <p>{{trip.creatorID}}</p>
+      {{/if}}
+
+      {{#each trip.comment}}
+      <p>{{this}}</p>
+      {{/each}}
+
+
+      {{#if owner}}
+      <a href="/trip/edit/{{trip._id}}">Editar viaje</a>
+      {{/if}}
+
+      {{#if user}}
+
+      {{!-- <div class="form-group">
+      <h3>Comentarios</h3>
+        <label for="title">Título:</label>
+        <input type="text" name="title" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="content">Contenido:</label>
+        <textarea name="content" class="form-control"></textarea>
+
+ --}}
+    </div>
+    {{/if}}
+    <div class="map">
+      <figure id="map"></figure>
+      <div class="grey-mask"></div>
+      <div id="right-panel">
+        <p>Total Distance: <span id="total"></span></p>
+      </div>
+    </div>
+  </div>
+  {{!-- <a href="/trip/list">Ir a Lista</a> --}}
+
+
 </div>
 
-<div class="form-group">
-  <label for="content">Contenido:</label>
-  <input type="text" name="content" class="form-control"><br><br>
-
-
-</div>
-{{/if}}
-<a href="/trip/list">Ir a Lista</a>
-
-<figure id="map"></figure>
-<div id="right-panel">
-  <p>Total Distance: <span id="total"></span></p>
 </div>

@@ -79,7 +79,9 @@ router.post('/edit/trip_id', (req, res) => {
 //lista de viajes
 router.get('/list', (req, res, next) => {
   Trip.find()
+    .populate("creatorID")
     .then(allTrips => {
+      console.log(allTrips)
       res.render('trip/trip-list', { trips: allTrips })
     })
     .catch(error => console.log(error))

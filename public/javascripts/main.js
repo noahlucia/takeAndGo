@@ -47,7 +47,3 @@ window.onload = () => {
 
 
 }
-window.onclick = e => {
-  console.log(e)
-
-}
