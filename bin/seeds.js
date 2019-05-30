@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/user.models");
 const Trip = require("../models/trip.models")
 const Schema = mongoose.Schema;
+require("dotenv").config()
 
 const bcryptSalt = 10;
 
