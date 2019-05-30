@@ -217,15 +217,15 @@ window.onload = () => {
   }
 
 
-}
 
+}
+// Change menu page
 
 const menuBtn = document.querySelectorAll('.navegation ul a')
 
 menuBtn.forEach(elm => {
   elm.onclick = () => {
     let name = elm.hash.slice(1, elm.hash.length)
-    console.log(name)
     if (name === 'aboutus') {
       document.getElementById('home').style.zIndex = 0
       document.getElementById('aboutUs').style.zIndex = 50
@@ -237,3 +237,5 @@ menuBtn.forEach(elm => {
     }
   }
 })
+
+// Pagination list section

@@ -1,12 +1,11 @@
 <div class='container'>
-
-
   <aside class='user-inf'>
     <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
     <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
     <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
-    <a href='/trip/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+    <a href='/trip/detail/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
   </aside>
+
   <div class='container-med'>
 
     <div class="box-left">
@@ -69,15 +68,7 @@
       <button type="submit">Edit</button>
 
       </form>
-
-
-
     </div>
-
-
-
-
-
   </div>
 
 </div>

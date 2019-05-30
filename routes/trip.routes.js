@@ -1,7 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
-
 const Trip = require('../models/trip.models')
 
 const isOwner = (req, trip) => {
@@ -12,8 +10,9 @@ const isLogged = (req) => req.user !== undefined
 
 //añadir nuevo viaje
 
-router.get('/add', (req, res) => res.render("trip/trip-add"))
+router.get('/add', (req, res) => res.render("trip/trip-add", { user: req.user }))
 router.post('/add', (req, res) => {
+
 
   const { title, originNeighb, origin, destNeighb, destination, day, time, passengers, price, description, carType } = req.body
 
@@ -67,7 +66,7 @@ router.get('/edit/:trip_id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.post('/edit/trip_id', (req, res) => {
+router.post('/edit/:trip_id', (req, res) => {
   const { title, neighbourhood, origin, destination, day, time, passengers, price, description, smoker, carType } = req.body
 
   Trip.findByIdAndUpdate({ _id: req.params.trip_id }, { $set: { title, neighbourhood, origin, destination, day, time, passengers, price, description, smoker, carType } })
@@ -82,7 +81,7 @@ router.get('/list', (req, res, next) => {
     .populate("creatorID")
     .then(allTrips => {
       console.log(allTrips)
-      res.render('trip/trip-list', { trips: allTrips })
+      res.render('trip/trip-list', { trips: allTrips, user: req.user })
     })
     .catch(error => console.log(error))
 })

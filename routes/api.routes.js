@@ -6,7 +6,7 @@ const Trip = require('../models/trip.models')
 router.post('/', (req, res, next) => {
   const { originNeighb, destNeighb } = req.body
 
-  Trip.find({ $and: [{ originNeighb: "Moratalaz" }, { destNeighb: "Carabanchel" }] })
+  Trip.find({ $and: [{ originNeighb: originNeighb }, { destNeighb: destNeighb }] })
     .then(trips => {
       console.log(trips)
       res.status(200).json({ trips });

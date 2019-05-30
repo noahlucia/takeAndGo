@@ -294,7 +294,7 @@ input {
   border: 0px;
   box-shadow: 1px 3px #a6a6a636;
   font-family: FontAwesome, "Montserrat";
-  font-size: 0.7em;
+  font-size: 0.8em;
 }
 
 input::placeholder {
@@ -639,5 +639,57 @@ textarea {
 
 .user-info span {
   font-weight: 600;
+}
 
+// Add trip
+
+.select-zone {
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 0.8em;
+  color: #00144a;
+  line-height: 20px;
+}
+
+.smo-pre input {
+  width: 2%;
+  height: 10px;
+}
+
+.smo-pre select {
+  margin: 0 10px;
+}
+
+// List Trip
+
+.container-down {
+  width: 80%;
+  height: 100vh;
+}
+
+.box-head {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  align-items: center;
+  height: 80px;
+  padding: 0 100px;
+}
+
+.box-head h2 {
+  margin: 0;
+  font-family: FontAwesome, 'Montserrat';
+  font-size: 1em;
+}
+
+.select-box {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.select-box p {
+  text-transform: lowercase;
+  font-size: 0.8em;
+  color: #00144a;
 }

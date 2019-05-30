@@ -1,11 +1,9 @@
 <div class='container'>
-
-
   <aside class='user-inf'>
     <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
     <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
     <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
-    <a href='/trip/edit'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+    <a href='/trip/detail/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
   </aside>
   <div class='container-med'>
 
@@ -38,12 +36,12 @@
       {{#if owner}}
       <p>{{trip.creatorID}}</p>
       {{/if}}
-      <<<<<<< HEAD {{#each trip.comment}} <p>{{this}}</p>
-        {{/each}}
+      {{#each trip.comment}} <p>{{this}}</p>
+      {{/each}}
 
 
-        {{#if owner}}
-        <a href='/trip/edit/{{trip._id}}'>Editar viaje</a> {{/if}} {{#if user}} {{!-- <div class='form-group'>
+      {{#if owner}}
+      <a href='/trip/edit/{{trip._id}}'>Editar viaje</a> {{/if}} {{#if user}} {{!-- <div class='form-group'>
      <h3>Comentarios</h3>
        <label for='title'>Título:</label>
        <input type='text' name='title' class='form-control'>
@@ -64,7 +62,6 @@
     </div>
   </div>
   {{!-- <a href='/trip/list'>Ir a Lista</a> --}}
-  =======
 
   {{#each trip.comment}}
   <p>{{this}}</p>
@@ -98,10 +95,4 @@
   </div>
 </div>
 </div>
-{{!-- <a href="/trip/list">Ir a Lista</a> --}}
->>>>>>> 7da94a3ce3bc5a41630838697de64a7dd669885d
-
-
 </div>
-
-<<<<<<< HEAD </div>=======</div>>>>>>>> 7da94a3ce3bc5a41630838697de64a7dd669885d
