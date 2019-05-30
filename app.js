@@ -48,7 +48,7 @@ app.use(flash())
 require('./passport')(app)
 
 // default value for title local
-app.locals.title = 'Wellcome to Take&Go'
+app.locals.title = 'Welcome to Take&Go'
 
 
 

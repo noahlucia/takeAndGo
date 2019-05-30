@@ -28,22 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
         response.data.trips.forEach(trip => {
 
           document.getElementById("search-results").innerHTML +=
-            ` <article class="card">
-              <img class="card-img-top" src="${trip.creatorID.imgPath}" alt="user image">
-                <div class="card-body">
-                  <h5 class="card-title">${trip.title}</h5>
-                  <p class="card-text">From: ${trip.origin}</p>
-                  <p class="card-text">To: ${trip.destination}</p>
-                  <p class="card-text">Price: ${trip.price}</p>
-                  <p class="card-text">Passengers: ${trip.passengers}</p>
-  
-                  <a href="/trip/detail/${trip._id}" class="button-join">Detalles</a>
-                </div>
-  </article>`
+
+            `<article class="card">
+  <div class="card-body">
+    <div class="card-img">
+      <img class="card-img-top" src="${trip.creatorID.imgPath}" alt="user image">
+    </div>
+    <div class="card-text">
+      <h5 class="card-title">${trip.title}</h5>
+      <p class="card-text">From: ${trip.origin}</p>
+      <p class="card-text">To: ${trip.destination}</p>
+      <p class="card-text">Price: ${trip.price}</p>
+      <p class="card-text">Passengers: ${trip.passengers}</p>
+      <a href="/trip/detail/${trip._id}" class="button">Detalles</a>
+    </div>
+  </div>
+</article>
+            `
+
         })
-
-
-
 
       })
   }

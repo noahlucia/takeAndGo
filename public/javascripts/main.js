@@ -237,5 +237,3 @@ menuBtn.forEach(elm => {
     }
   }
 })
-
-// Pagination list section
