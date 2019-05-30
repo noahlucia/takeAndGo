@@ -60,13 +60,15 @@ h2 {
 
 .navegation {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   height: 80px;
   align-items: center;
-  position: absolute;
   z-index: 999;
-  width: 60%;
-  right: 0; }
+  width: 73%;
+  right: 0;
+  position: fixed;
+  background: #fafafa;
+  padding-right: 100px; }
 
 .navegation a {
   text-decoration: none; }
@@ -93,7 +95,7 @@ h2 {
   font-size: 1.4em;
   letter-spacing: 1px;
   display: flex;
-  position: absolute;
+  position: fixed;
   text-decoration: none;
   width: 20%;
   height: 80px;
@@ -181,11 +183,11 @@ img.homeImg {
   from {
     transform: translateX(-50px); }
   to {
-    transform: translateX(47px); } }
+    transform: translateX(23px); } }
 
 @keyframes float2 {
   from {
-    transform: translateX(38px); }
+    transform: translateX(30px); }
   to {
     transform: translateX(-50px); } }
 
@@ -366,7 +368,6 @@ textarea {
 
 .user-inf {
   display: flex;
-  width: 20%;
   flex-direction: column;
   justify-content: center;
   line-height: 50px;
@@ -374,7 +375,8 @@ textarea {
   background: white;
   box-shadow: 5px 3px #a6a6a61c;
   height: 100vh;
-  padding: 0 80px; }
+  padding: 0 80px;
+  position: fixed; }
 
 .user-inf a {
   color: #00144A;
@@ -552,5 +554,75 @@ textarea {
   text-transform: lowercase;
   font-size: 0.8em;
   color: #00144a; }
+
+.flex-container li {
+  list-style: none; }
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+article.card {
+  box-shadow: 3px 5px 5px #a6a6a636;
+  text-align: center;
+  width: 250px;
+  margin: 10px;
+  height: 400px;
+  border-radius: 30px; }
+
+h5.card-title {
+  text-transform: uppercase;
+  color: #00144a;
+  font-size: .8em; }
+
+p.card-text {
+  text-transform: lowercase;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #00144a; }
+
+.card-img img {
+  width: 50%;
+  margin: 30px; }
+
+.card-text a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  text-align: center;
+  margin: 0 auto; }
+
+.card-text .button {
+  background: linear-gradient(to right top, #8deae3, #7cf0e1, #6bf5dc, #5dfad4, #53ffca);
+  padding: 15px 20px;
+  border-radius: 50px;
+  display: block;
+  margin-top: 10px;
+  box-shadow: 1px 3px #a6a6a636;
+  width: 50%; }
+
+.lateral {
+  display: block;
+  width: 20%; }
+
+.trip a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  text-align: center;
+  margin: 0 auto; }
+
+.trip .button {
+  background: linear-gradient(to right top, #8deae3, #7cf0e1, #6bf5dc, #5dfad4, #53ffca);
+  padding: 15px 20px;
+  border-radius: 50px;
+  display: block;
+  margin-top: 10px;
+  box-shadow: 1px 3px #a6a6a636;
+  width: 50%; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,17 +1,15 @@
 <article class="card">
-  <img class="card-img-top" src="{{creatorID.imgPath}}" alt="user image">
   <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">From: {{origin}}</p>
-    <p class="card-text">To: {{destination}}</p>
-    <p class="card-text">Price: {{price}}</p>
-    <p class="card-text">Passengers: {{maxPassengers}}</p>
-
-    <a href="/trip/detail/{{this._id}}" class="button-join">Detalles</a>
-
-
-
-
-
+    <div class="card-img">
+      <img class="card-img-top" src="{{creatorID.imgPath}}" alt="user image">
+    </div>
+    <div class="card-text">
+      <h5 class="card-title">{{title}}</h5>
+      <p class="card-text">From: {{origin}}</p>
+      <p class="card-text">To: {{destination}}</p>
+      <p class="card-text">Price: {{price}}</p>
+      <p class="card-text">Passengers: {{maxPassengers}}</p>
+      <a href="/trip/detail/{{this._id}}" class="button">Detalles</a>
+    </div>
   </div>
 </article>

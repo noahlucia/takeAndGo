@@ -72,9 +72,7 @@ router.get("/join/:trip_id", (req, res) => {
       if (req.user.smoker === true) smoker = "Sí"
       else smoker = "No"
 
-
       if (!(trip.passengers.some(passenger => passenger == req.user._id.toString())) && trip.passengers.length <= trip.maxPassengers) {
-
         //Añadir el usuario al viaje
         Trip.findByIdAndUpdate(
           { _id: req.params.trip_id },

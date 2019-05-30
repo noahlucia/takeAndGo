@@ -1,10 +1,14 @@
 <div class='container'>
-  <aside class='user-inf'>
-    <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
-    <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
-    <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
-    <a href='/trip/detail/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
-  </aside>
+  <div class="lateral">
+
+
+    <aside class='user-inf'>
+      <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
+      <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
+      <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
+      <a href='/trip/detail/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+    </aside>
+  </div>
   <div class='container-med'>
 
     <div class='trip'>
@@ -37,13 +41,19 @@
 
       {{#if user}}
 
+<<<<<<< HEAD
       <a href="/trip/join/{{trip._id}}">Join </a> {{/if}} {{#if owner}} <p>{{trip.creatorID}}</p>
+=======
+      <a href="/trip/myTrips/{{trip._id}}" class="button">Join </a> {{/if}} {{#if owner}} <p>{{trip.creatorID}}</p>
+>>>>>>> e0a5c04c58dd8933ff1419bba6ee14112e6a14c2
       {{/if}}
       {{#each trip.comment}} <p>{{this}}</p>
       {{/each}}
 
       {{#if message}}
-      {{message}}
+      <div class="mgs">
+        {{message}}
+      </div>
       {{/if}}
 
       {{#if owner}}
@@ -74,7 +84,7 @@
   {{/each}}
 
 
-  {{#if owner}}
+  {{!-- {{#if owner}}
   <a href="/trip/edit/{{trip._id}}">Editar viaje</a> {{/if}} <div class="map">
     <figure id="map"></figure>
     <div class="grey-mask"></div>
@@ -82,8 +92,8 @@
       <p>Total Distance: <span id="total"></span></p>
     </div>
   </div>
-</div>
-{{!-- <a href="/trip/list">Ir a Lista</a> --}}
+</div> --}}
+  {{!-- <a href="/trip/list">Ir a Lista</a> --}}
 
 
 </div>
