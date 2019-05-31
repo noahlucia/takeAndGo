@@ -2,12 +2,16 @@
   <div class="lateral">
 
 
-    <aside class='user-inf'>
-      <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
-      <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
-      <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
-      <a href='/trip/detail/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
-    </aside>
+    <div class="lateral">
+
+
+      <aside class='user-inf'>
+        <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
+        <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
+        <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
+        <a href='/trip/myTrips/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+      </aside>
+    </div>
   </div>
   <div class='container-med'>
 
@@ -30,20 +34,24 @@
 
       <div class='trip-info'>
 
-        <p><span>Pasajeros:
-            {{#each trip.passengers}} </span>{{username}}</p>{{/each}}
-        <p><span>Fumador: </span>{{smoker}}</p>
-        <p><span>Coche: </span>{{trip.carType}}</p>
-        <p><span>Descripción:</span> {{trip.description}}</p>
+        <p><span>Passengers:
+            {{#each trip.passengers}}
+          </span>{{username}}</p>
+        {{/each}}
+        <p><span>Smoker: </span>{{smoker}}</p>
+        <p><span>Car: </span>{{trip.carType}}</p>
+        <p><span>Description:</span> {{trip.description}}</p>
 
       </div>
 
-
-      {{#if user}}
-
-      <a href="/trip/myTrips/{{trip._id}}" class="button">Join </a> {{/if}} {{#if owner}} <p>{{trip.creatorID}}</p>
+      {{#if owner}}
+      <a href="/trip/edit/{{trip._id}}" class="button">Edit</a>
+      <a href="/trip/delete/{{trip._id}}" class="btn-dele">Delete</a>
+      {{else}}
+      <a href="/trip/myTrips/{{trip._id}}" class="button">Join</a>
       {{/if}}
-      {{#each trip.comment}} <p>{{this}}</p>
+      {{#each trip.comment}}
+      <p>{{this}}</p>
       {{/each}}
 
       {{#if message}}
