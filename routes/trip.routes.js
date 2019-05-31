@@ -17,14 +17,14 @@ router.get('/add', (req, res) => res.render("trip/trip-add", { user: req.user })
 router.post('/add', (req, res) => {
 
 
-  const { title, originNeighb, origin, destNeighb, destination, day, time, passengers, price, description, carType } = req.body
+  const { title, originNeighb, origin, destNeighb, destination, day, time, passengers, price, description, carType, maxPassengers } = req.body
 
   let smoker = req.body.smoker
   if (smoker === "on") smoker = true
   else smoker = false
-
+  console.log(req.body)
   const creatorID = req.user.id
-  const newTrip = new Trip({ creatorID, title, originNeighb, origin, destNeighb, destination, day, time, passengers, price, description, smoker, carType })
+  const newTrip = new Trip({ creatorID, title, originNeighb, origin, destNeighb, destination, day, time, passengers, price, description, smoker, carType, maxPassengers })
   newTrip.save()
     .then(theTrip => res.redirect(`/trip/detail/${theTrip._id}`))
     .catch(error => console.log(error))
@@ -38,6 +38,9 @@ router.get('/detail/:trip_id', (req, res) => {
   Trip.findById(req.params.trip_id)
     .populate("passengers")
     .then(theTrip => {
+
+      console.log(theTrip)
+
       let day = theTrip.day.getDate()
       let month = theTrip.day.getMonth()
       let year = theTrip.day.getFullYear()
@@ -46,7 +49,7 @@ router.get('/detail/:trip_id', (req, res) => {
       if (req.user.smoker === true) smoker = "Sí"
       else smoker = "No"
 
-      console.log(isOwner(req, theTrip))
+
       res.render('trip/trip-detail', {
         trip: theTrip,
         date: `${day}/${month}/${year}`,
@@ -109,21 +112,19 @@ router.get("/join/:trip_id", (req, res) => {
 
 //editar
 router.get('/edit/:trip_id', (req, res) => {
-
   Trip.findOne({ _id: req.params.trip_id })
     .then(trip => {
-      res.render("trip/trip-edit", { trip })
+      res.render("trip/trip-edit", { trip, user: req.user })
     })
     .catch(error => console.log(error))
 })
 
 router.post('/edit/:trip_id', (req, res) => {
-  const { title, neighbourhood, origin, destination, day, time, passengers, price, description, smoker, carType } = req.body
+  const { origin, destination, day, time, maxPassengers, price, description, smoker, carType } = req.body
 
-  Trip.findByIdAndUpdate({ _id: req.params.trip_id }, { $set: { title, neighbourhood, origin, destination, day, time, passengers, price, description, smoker, carType } })
-    .then(() => res.redirect(`/trip/detail/${theTrip._id}`))
+  Trip.findByIdAndUpdate({ _id: req.params.trip_id }, { $set: { origin, destination, day, time, maxPassengers, price, description, smoker, carType } }, { new: true })
+    .then(theTrip => res.redirect(`/trip/detail/${theTrip._id}`))
     .catch(error => console.log(error))
-
 })
 
 
@@ -142,9 +143,10 @@ router.get('/list', (req, res, next) => {
 
 
 //delete
-router.post('/delete/:trip_id', (req, res) => {
+router.get('/delete/:trip_id', (req, res) => {
   Trip.findByIdAndRemove(req.params.trip_id)
     .then(theTrip => {
+      console.log(req.params.trip_id)
       res.redirect('/trip/list')
     })
     .catch(error => console.log(error))
@@ -153,14 +155,14 @@ router.post('/delete/:trip_id', (req, res) => {
 
 //List myTrips
 
-router.get("/myTrips", (req, res) => {
-
+router.get("/myTrips/:id", (req, res) => {
+  console.log(req.user.id)
   User.findById({ _id: req.user._id })
     .populate({ path: 'myTrips', populate: { path: 'creatorID' } })
     .then(user => {
 
       console.log(user.myTrips)
-      res.render("trip/trip-myTrip", { trips: user.myTrips })
+      res.render("trip/trip-myTrip", { trips: user.myTrips, user: req.user })
     })
 
 })

@@ -1,15 +1,42 @@
-<div class="box-bottom">
-  <h1>Hola</h1>
-  <ul>
-    <div id="search-results" class="flex-container">
-      {{#each trips}}
-      <li>
-        {{> tripCard}}
-    </div>
-    {{#if trip.creatorID}}
-    <a href="/trip/edit/{{this._id}}">editar</a>
-    {{/if}}
-    </li>
-    {{/each}}
+<div class="container">
+  <div class="lateral">
+    <div class="lateral">
 
-  </ul>
+
+      <aside class='user-inf'>
+        <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
+        <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
+        <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
+        <a href='/trip/myTrips/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+      </aside>
+    </div>
+  </div>
+  <div class='container-down'>
+
+    <div class="box-head">
+
+
+    </div>
+    <div class="box-bottom">
+      <ul>
+        <div id="search-results" class="flex-container">
+          {{#each trips}}
+          <li>
+            {{> tripCard}}
+            {{/each}}
+        </div>
+        {{#if creatorID}}
+        <a href="/trip/edit/{{this._id}}">editar</a>
+        {{/if}}
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+</div>
+<script src="/javascripts/script.js"></script>
+<script>
+  const trips = {{{ trips }}}
+</script>

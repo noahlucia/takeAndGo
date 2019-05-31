@@ -1,12 +1,10 @@
 <div class='container'>
   <div class="lateral">
-
-
     <aside class='user-inf'>
       <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
       <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
       <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
-      <a href='/trip/detail/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+      <a href='/trip/myTrips/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
     </aside>
   </div>
   <div class='container-med'>
@@ -30,41 +28,31 @@
 
       <div class='trip-info'>
 
-        <p><span>Pasajeros:
-            {{#each trip.passengers}} </span>{{username}}</p>{{/each}}
-        <p><span>Fumador: </span>{{smoker}}</p>
-        <p><span>Coche: </span>{{trip.carType}}</p>
-        <p><span>Descripción:</span> {{trip.description}}</p>
+        <p><span>Passengers:
+            {{#each trip.passengers}}
+          </span>{{username}}</p>
+        {{/each}}
+        <p><span>Smoker: </span>{{smoker}}</p>
+        <p><span>Car: </span>{{trip.carType}}</p>
+        <p><span>Description:</span> {{trip.description}}</p>
 
       </div>
 
+      {{#if owner}}
+      <a href="/trip/edit/{{trip._id}}" class="button">Edit</a>
+      <a href="/trip/delete/{{trip._id}}" class="btn-dele">Delete</a>
 
-      {{#if user}}
-
-      <a href="/trip/join/{{trip._id}}" class="button">Join </a> {{/if}} {{#if owner}} <p>{{trip.creatorID}}</p>
+      {{else}}
+      <a href="/trip/join/{{trip._id}}" class="button">Join</a>
       {{/if}}
-      {{#each trip.comment}} <p>{{this}}</p>
-      {{/each}}
-
       {{#if message}}
       <div class="mgs">
         {{message}}
       </div>
       {{/if}}
 
-      {{#if owner}}
-      <a href='/trip/edit/{{trip._id}}'>Editar viaje</a> {{/if}} {{#if user}} {{!-- <div class='form-group'>
-     <h3>Comentarios</h3>
-       <label for='title'>Título:</label>
-       <input type='text' name='title' class='form-control'>
-     </div>
 
-     <div class='form-group'>
-       <label for='content'>Contenido:</label>
-       <textarea name='content' class='form-control'></textarea>
-
---}}
-    </div> {{/if}}
+    </div>
     <div class='map'>
       <figure id='map'></figure>
       <div class='grey-mask'></div>
@@ -72,24 +60,5 @@
         <p>Total Distance: <span id='total'></span></p>
       </div>
     </div>
+
   </div>
-  {{!-- <a href='/trip/list'>Ir a Lista</a> --}}
-
-  {{#each trip.comment}}
-  <p>{{this}}</p>
-  {{/each}}
-
-
-  {{!-- {{#if owner}}
-  <a href="/trip/edit/{{trip._id}}">Editar viaje</a> {{/if}} <div class="map">
-    <figure id="map"></figure>
-    <div class="grey-mask"></div>
-    <div id="right-panel">
-      <p>Total Distance: <span id="total"></span></p>
-    </div>
-  </div>
-</div> --}}
-  {{!-- <a href="/trip/list">Ir a Lista</a> --}}
-
-
-</div>

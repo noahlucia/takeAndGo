@@ -18,14 +18,14 @@
   <header class="navegation">
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#aboutus">About us</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/" class="btn from-left">Home</a></li>
+        <li><a href="/#aboutus" class="btn from-left">About us</a></li>
+        <li><a href="/#contact" class="btn from-left">Contact</a></li>
         {{#if user}}
-        <li><a href="/trip/list">View</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li><a href="/trip/list" class="btn from-left">View</a></li>
+        <li><a href="/logout" class="btn from-left">Logout</a></li>
         {{else}}
-        <li><a href="/signup">Login / Register</a></li>
+        <li><a href="/signup" class="btn from-left">Login / Register</a></li>
         {{/if}}
 
       </ul>
@@ -34,7 +34,12 @@
 
   {{{body}}}
 
-
+  <footer>
+    <div class="made">
+      <p>Made with love by <a href="https://www.linkedin.com/in/lulastray/">Lucia</a> & <a
+          href="https://www.linkedin.com/in/noahwt/">Noah</a></p>
+    </div>
+  </footer>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG88rK2sVwRDbZIJautuIZpNt32kAQpSU"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="/javascripts/main.js"></script>

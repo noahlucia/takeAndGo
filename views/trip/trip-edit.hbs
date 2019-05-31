@@ -1,70 +1,77 @@
-<div class="container">
-  <div class="row">
-    {{ message }}
-
-    <h1>Editar {{trip.title}}</h1>
-    <div class="col-sm-6 centered-form">
-      <form action="/trip/add" method="post">
-        <div class="form-group">
-          <label for="origin">Origen:</label>
-          <input type="text" name="origin" class="form-control" value="{{trip.origin}}"><br><br>
-        </div>
-
-        <div class="form-group">
-          <label for="destination">Destino:</label>
-          <input type="text" name="destination" class="form-control" value="{{trip.destination}}"><br><br>
-
-        </div>
-
-        <div class="form-group">
-          <label for="day">Fecha:</label>
-          <input type="date" name="day" class="form-control" value="{{trip.day}}"><br><br>
-
-        </div>
-        <div class="form-group">
-          <label for="time">hora:</label>
-          <input type="time" name="time" class="form-control" value="{{trip.time}}"><br><br>
-
-        </div>
-
-        <div class="form-group">
-          <label for="passengers">Pasajeros:</label>
-          <input type="text" name="passengers" class="form-control" value="{{trip.passengers}}"><br><br>
-
-        </div>
-
-
-        <div class="form-group">
-          <p>Precio:</p>
-          <select name="select">
-
-            <option value="value1">3 €</option>
-            <option value="value2">5 €</option>
-            <option value="value3">8 €</option>
-          </select><br>
-
-          <div class="form-group">
-            <label for="description">Descripción:</label>
-            <input type="text" name="description" class="form-control" value="{{trip.description}}"><br><br>
-
-          </div>
-
-        </div>
-
-        <div class="form-group">
-          <label for="smoker">Fumador:</label>
-          <input type="checkbox" name="smoker" class="form-control"><br><br>
-
-        </div>
-
-        <div class="form-group">
-          <label for="carType">Coche:</label>
-          <input type="text" name="carType" class="form-control" value="{{trip.carType}}"><br><br>
-
-        </div>
-
-        <button type="submit">Editar viaje</button>
-      </form>
-    </div>
+<div class='container'>
+  <div class="lateral">
+    <aside class='user-inf'>
+      <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
+      <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
+      <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
+      <a href='/trip/myTrips/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+    </aside>
   </div>
+  <div class='container-med'>
+
+    <form action="/trip/edit/{{trip._id}}" method="post" class="form-user" enctype="multipart/form-data">
+
+      <div class="box-left">
+        <h2>Edit trip -{{trip.title}}-</h2>
+        <div class="form-group user-label">
+          <label for="origin">origin:</label>
+          <input type="text" name="origin" class="form-control" value="{{trip.origin}}">
+        </div>
+
+        <div class="form-group user-label">
+          <label for="destination">Destine:</label>
+          <input type="text" name="destination" class="form-control" value="{{trip.destination}}">
+        </div>
+
+        <div class="form-group user-label">
+          <label for="day">Day:</label>
+          <input type="date" name="day" class="form-control" value="{{trip.day}}">
+        </div>
+
+        <div class="form-group user-label">
+          <label for="time">Time:</label>
+          <input type="time" name="time" class="form-control" value="{{trip.time}}">
+        </div>
+      </div>
+
+      <div class="box-right">
+
+        <div class="form-group user-label">
+          <input type="number" name="maxPassengers" class="form-control" placeholder="&#xf0c0;   maxPassengers"
+            value="{{trip.passengers}}">
+        </div>
+
+        <div class="form-group user-label smo-pre">
+          <p>price:</p>
+          <select name="price">
+            <option value="3€">3 €</option>
+            <option value="5€">5 €</option>
+            <option value="8€">8 €</option>
+          </select>
+
+          <label for="smoker">smoker:</label>
+          <input type="checkbox" name="smoker" class="form-control">
+
+        </div>
+        <div class="form-group user-label">
+          <input type="text" name="carType" class="form-control" value="{{trip.carType}}" placeholder="&#xf1b9;   car">
+        </div>
+        <div class="form-group user-label">
+          <label for="description"></label>
+          <textarea name="description" id="description" cols="40" rows="10" placeholder="&#xf120;   message"
+            value="{{trip.description}}"></textarea>
+        </div>
+        <button type="submit">Edit</button>
+
+        {{#if message}}
+        <div class="mgs">
+          {{message}}
+        </div>
+        {{/if}}
+      </div>
+    </form>
+
+
+  </div>
+
 </div>

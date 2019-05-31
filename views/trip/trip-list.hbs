@@ -64,3 +64,17 @@
 <script>
   const trips = {{{ trips }}}
 </script>
+
+
+{{#if owner}}
+<a href="/trip/edit/{{trip._id}}" class="button">Edit</a>
+<a href="/trip/delete/{{trip._id}}" class="btn-dele">Delete</a>
+{{#else}}
+<a href="/trip/join/{{trip._id}}" class="button">Join</a>
+{{/else}}
+{{#if message}}
+<div class="mgs">
+  {{message}}
+</div>
+{{/if}}
+{{/if}}
