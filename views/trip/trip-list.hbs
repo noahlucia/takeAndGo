@@ -1,13 +1,11 @@
 <div class="container">
   <div class="lateral">
-    <div class="lateral">
-      <aside class='user-inf'>
-        <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
-        <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
-        <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
-        <a href='/trip/myTrips/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
-      </aside>
-    </div>
+    <aside class='user-inf'>
+      <a href='/edit/{{user._id}}'><i class="fas fa-user-circle"></i> My Account</a>
+      <a href='/trip/list'><i class="fas fa-car"></i> Find Car</a>
+      <a href='/trip/add'><i class="fas fa-taxi"></i> Sharing Car</a>
+      <a href='/trip/myTrips/{{user._id}}'><i class="fas fa-map-marked-alt"></i> My Trip</a>
+    </aside>
   </div>
   <div class='container-down'>
 
@@ -18,9 +16,9 @@
         <select id="originNeighb">
           <option value="Carabanchel">Carabanchel</option>
           <option value="Ciudad Lineal">Ciudad Lineal</option>
-          <option value="Chamartín">Chamartín</option>
+          <option value="Chamartin">Chamartín</option>
           <option value="El Pilar">El Pilar</option>
-          <option value="Hortaleza<">Hortaleza</option>
+          <option value="Hortaleza">Hortaleza</option>
           <option value="Las Tablas">Las Tablas</option>
           <option value="Latina">Latina</option>
           <option value="Moratalaz">Moratalaz</option>
@@ -31,9 +29,9 @@
         <select id="destNeighb">
           <option value="Carabanchel">Carabanchel</option>
           <option value="Ciudad Lineal">Ciudad Lineal</option>
-          <option value="Chamartín">Chamartín</option>
+          <option value="Chamartin">Chamartín</option>
           <option value="El Pilar">El Pilar</option>
-          <option value="Hortaleza<">Hortaleza</option>
+          <option value="Hortaleza">Hortaleza</option>
           <option value="Las Tablas">Las Tablas</option>
           <option value="Latina">Latina</option>
           <option value="Moratalaz">Moratalaz</option>
@@ -66,3 +64,17 @@
 <script>
   const trips = {{{ trips }}}
 </script>
+
+
+{{#if owner}}
+<a href="/trip/edit/{{trip._id}}" class="button">Edit</a>
+<a href="/trip/delete/{{trip._id}}" class="btn-dele">Delete</a>
+{{#else}}
+<a href="/trip/join/{{trip._id}}" class="button">Join</a>
+{{/else}}
+{{#if message}}
+<div class="mgs">
+  {{message}}
+</div>
+{{/if}}
+{{/if}}
