@@ -185,11 +185,11 @@ img.homeImg {
   from {
     transform: translateX(-50px); }
   to {
-    transform: translateX(41px); } }
+    transform: translateX(42px); } }
 
 @keyframes float2 {
   from {
-    transform: translateX(41px); }
+    transform: translateX(4px); }
   to {
     transform: translateX(-50px); } }
 
@@ -496,7 +496,8 @@ textarea {
   text-transform: lowercase;
   font-size: 0.8em;
   justify-content: center;
-  color: #00144a; }
+  color: #00144a;
+  width: 100%; }
 
 .user-label input {
   margin: 20px 20px;
@@ -564,7 +565,8 @@ textarea {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center; }
+  justify-content: center;
+  padding-bottom: 50px; }
 
 article.card {
   box-shadow: 3px 5px 5px #a6a6a636;
@@ -709,5 +711,19 @@ footer {
 .from-left:hover:before,
 .from-left:hover:after {
   width: 100%; }
+
+.form-user-2 {
+  width: 100%;
+  display: flex; }
+
+.box-left-2 {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }
+
+.box-left-2 h2 {
+  padding: 5px 50px; }
 
 /*# sourceMappingURL=style.css.map */
