@@ -1,3 +1,15 @@
-{{#each trips}}
-{{> tripCard}}
-{{/each}}
+<div class="box-bottom">
+  <h1>Hola</h1>
+  <ul>
+    <div id="search-results" class="flex-container">
+      {{#each trips}}
+      <li>
+        {{> tripCard}}
+    </div>
+    {{#if trip.creatorID}}
+    <a href="/trip/edit/{{this._id}}">editar</a>
+    {{/if}}
+    </li>
+    {{/each}}
+
+  </ul>

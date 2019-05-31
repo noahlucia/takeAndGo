@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Trip = require('../models/trip.models')
 const User = require('../models/user.models')
+const bodyParser = require('body-parser')
+
 
 const isOwner = (req, trip) => {
   return trip.creatorID == req.user.id
@@ -57,11 +59,12 @@ router.get('/detail/:trip_id', (req, res) => {
 })
 
 
-
+//Join trip
 router.get("/join/:trip_id", (req, res) => {
 
   Trip.findById({ _id: req.params.trip_id })
     .populate("passengers")
+    .lean()
     .then(trip => {
 
       let day = trip.day.getDate()
@@ -72,7 +75,10 @@ router.get("/join/:trip_id", (req, res) => {
       if (req.user.smoker === true) smoker = "Sí"
       else smoker = "No"
 
-      if (!(trip.passengers.some(passenger => passenger == req.user._id.toString())) && trip.passengers.length <= trip.maxPassengers) {
+      let passangersArr = trip.passengers.map(obj => obj)
+
+
+      if (!passangersArr.some(p => p._id.toString() == req.user._id.toString()) && trip.passengers.length < trip.maxPassengers) {
         //Añadir el usuario al viaje
         Trip.findByIdAndUpdate(
           { _id: req.params.trip_id },
@@ -128,7 +134,7 @@ router.get('/list', (req, res, next) => {
     .then(allTrips => {
 
       console.log(allTrips)
-      res.render('trip/trip-list', { trips: JSON.stringify(allTrips), user: req.user })
+      res.render('trip/trip-list', { trips: allTrips, user: req.user })
     })
     .catch(error => console.log(error))
 })
@@ -145,13 +151,14 @@ router.post('/delete/:trip_id', (req, res) => {
 })
 
 
-//join Trip
+//List myTrips
 
 router.get("/myTrips", (req, res) => {
 
   User.findById({ _id: req.user._id })
     .populate({ path: 'myTrips', populate: { path: 'creatorID' } })
     .then(user => {
+
       console.log(user.myTrips)
       res.render("trip/trip-myTrip", { trips: user.myTrips })
     })

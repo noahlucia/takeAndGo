@@ -41,7 +41,7 @@
 
       {{#if user}}
 
-      <a href="/trip/myTrips/{{trip._id}}" class="button">Join </a> {{/if}} {{#if owner}} <p>{{trip.creatorID}}</p>
+      <a href="/trip/join/{{trip._id}}" class="button">Join </a> {{/if}} {{#if owner}} <p>{{trip.creatorID}}</p>
       {{/if}}
       {{#each trip.comment}} <p>{{this}}</p>
       {{/each}}
